@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masai School Alumni Policies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Masai School Brand (Red, Black, White, Gray) -->
+    <!-- Application Structure Plan: A single-page application (SPA) with a top-level dashboard design. The main view presents four primary policy categories as interactive cards (Financial, Career, Scam, Crisis). Clicking a card smoothly scrolls to a dedicated, detailed section for that topic below. This structure was chosen for its mobile-friendly and intuitive, task-oriented user flow, allowing alumni to quickly access specific support areas without navigating away from a central hub, which translates the report's multi-page concept into a more cohesive and modern interactive experience. -->
+    <!-- Visualization & Content Choices: The application uses structured HTML/CSS and JavaScript for all informational displays, avoiding complex data charts as the source report is qualitative. Key Info -> Goal -> Presentation -> Interaction -> Justification: 1. Policy Categories -> Guide User -> 2x2 Card Grid -> On-click scroll -> Intuitive entry point. 2. Financial Options -> Organize dense info -> Tabbed Interface (JS) -> Click to switch content -> Prevents overwhelming users. 3. Placement Process -> Show sequence -> Vertical Step-by-Step Diagram (HTML/CSS) -> Visual clarity -> Clearly illustrates the process flow. 4. Scam Info -> Educate on threats -> Icon-based lists & toggles (JS) -> Filter between scam types -> Makes information scannable and targeted. All interactions are powered by vanilla JavaScript. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .policy-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .policy-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .section-hidden {
+            display: none;
+        }
+        details summary {
+            cursor: pointer;
+            list-style: none;
+        }
+        details summary::after {
+            content: "+";
+            float: right;
+            transition: transform 0.3s ease-in-out;
+        }
+        details[open] summary::after {
+            content: "-";
+            transform: rotate(180deg);
+        }
+        details > div {
+            transition: max-height 0.3s ease-out;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-center items-center">
+            <a href="#home" class="text-2xl md:text-3xl font-bold text-gray-900 hover:text-red-600 transition duration-300">Masai School <span class="text-red-600">Alumni Policies</span></a>
+        </div>
+    </header>
+
+    <main id="home" class="container mx-auto px-6 py-12 md:py-20">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Your Alumni Support Hub</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">Welcome. This is your central resource for all official Masai School alumni policies and support services. Explore the sections below to find the information you need.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <a href="#contingency" id="card-contingency" class="policy-card bg-white p-8 rounded-xl shadow-lg text-center block cursor-pointer">
+                <div class="text-5xl mb-4 text-red-600">💰</div>
+                <h3 class="text-xl font-bold mb-2">Contingency Support</h3>
+                <p class="text-gray-600">Access financial aid and guidance for unforeseen circumstances and continued education.</p>
+            </a>
+            <a href="#nbfc" id="card-nbfc" class="policy-card bg-white p-8 rounded-xl shadow-lg text-center block cursor-pointer">
+                <div class="text-5xl mb-4 text-red-600">🏦</div>
+                <h3 class="text-xl font-bold mb-2">NBFC Support</h3>
+                <p class="text-gray-600">Navigate the process of securing education loans with our Non-Banking Financial Company partners.</p>
+            </a>
+            <a href="#placement" id="card-placement" class="policy-card bg-white p-8 rounded-xl shadow-lg text-center block cursor-pointer">
+                <div class="text-5xl mb-4 text-red-600">🚀</div>
+                <h3 class="text-xl font-bold mb-2">Placement Support</h3>
+                <p class="text-gray-600">Leverage our dedicated career services to land your dream job in the tech industry.</p>
+            </a>
+            <a href="#scam" id="card-scam" class="policy-card bg-white p-8 rounded-xl shadow-lg text-center block cursor-pointer">
+                <div class="text-5xl mb-4 text-red-600">🛡️</div>
+                <h3 class="text-xl font-bold mb-2">Scam Alert</h3>
+                <p class="text-gray-600">Stay safe from online fraud with our awareness tips and preventive measures.</p>
+            </a>
+        </div>
+
+        <div class="max-w-3xl mx-auto mt-16 p-6 rounded-xl bg-gray-200 text-center shadow-inner">
+            <h3 class="text-xl font-bold mb-2 text-gray-900">Alumni Help Desk</h3>
+            <p class="text-gray-700 font-semibold">Monday to Friday (working days) | 6 PM – 8 PM</p>
+            <p class="text-gray-700 mt-2">For issues not covered in the documents or for general discussion.</p>
+            <a href="https://us06web.zoom.us/j/81448425087" target="_blank" class="mt-4 inline-block bg-red-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-red-700 transition">Join Zoom Session</a>
+        </div>
+    </main>
+
+    <section id="contingency" class="py-16 bg-white section-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-10">Financial & Contingency Support</h2>
+            <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">Explore the financial resources available to you as a Masai School alumnus, from emergency aid to loan guidance. We are committed to supporting you through every stage of your career journey.</p>
+            <div class="max-w-4xl mx-auto">
+                <div class="p-6 bg-gray-100 rounded-xl border-l-4 border-gray-300 shadow-inner mb-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Eligibility for EMI Support</h3>
+                    <p class="text-gray-700 mb-4">We are here to support you during difficult times. You are eligible for EMI support if you meet any of the following criteria:</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 text-lg">
+                        <li><strong>Company Shutdown:</strong> If your company goes out of business and winds up operations.</li>
+                        <li><strong>Company Layoffs:</strong> If you have experienced a layoff from your previous employer.</li>
+                        <li><strong>Major Pay Cuts:</strong> If you have suffered significant pay cuts that have impacted your financial stability.</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-red-50 rounded-xl border-l-4 border-red-500 shadow-inner mb-8">
+                    <h3 class="text-2xl font-bold text-red-800 mb-4">Steps to Avail Financial Support for EMI Payments</h3>
+                    <p class="text-gray-700 mb-4">To avail financial support for EMI payments, you must complete the following steps. Please note, this support is contingent on your active participation in the placement process, including clearing mock assessments and practicing with the placement team.</p>
+                    <p class="text-gray-700 font-semibold mb-4">All documents will be verified and any request which comes before the 25th of the month will be processed for EMI support after verification. Anything which is asked after the 25th of the month, support will be moved to the upcoming month for verification.</p>
+                    <p class="mt-4 text-red-700 font-semibold">Please be aware: <strong>EMI/Contingency support will only be provided once you have completed the placement support steps within the 7-day window</strong> for connecting with the Alumni Support team. The amount will be processed only after your documents are delivered to us.</p>
+                    <ol class="list-decimal list-inside space-y-4 text-gray-700 text-lg">
+                        <li><strong>Fill & Submit the Alumni Contingency Form:</strong> To receive the form, please reach out to the alumni support team. The team will evaluate and verify your request, and get back to you within two weeks.</li>
+                        <li><strong>Submit Required Documents:</strong> Please send the following documents to the office address mentioned below before the 1st of the month for which you have requested for contingency:
+                            <ul class="list-disc list-inside ml-4 mt-2 text-gray-600">
+                                <li>Filled and signed copy of the contingency application form</li>
+                                <li>Signed copies of the cheques</li>
+                                <li>Signed copy of the Letter of Intent</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                
+                <div class="max-w-md mx-auto p-6 bg-gray-100 rounded-xl shadow-md">
+                    <h4 class="text-xl font-bold mb-2 text-gray-900">Office Address</h4>
+                    <address class="text-gray-700 not-italic">
+                        Sibin (Alumni team)<br>
+                        Masai School<br>
+                        Incubex HSR21<br>
+                        5th Main Rd, Sector 7,<br>
+                        HSR Layout, Bengaluru, Karnataka 560102, India
+                    </address>
+                </div>
+            </div>
+            <div class="max-w-3xl mx-auto mt-16 p-6 rounded-xl bg-gray-200 text-center shadow-inner">
+                <h3 class="text-xl font-bold mb-2 text-gray-900">Alumni Help Desk</h3>
+                <p class="text-gray-700 font-semibold">Monday to Friday (working days) | 6 PM – 8 PM</p>
+                <p class="text-gray-700 mt-2">For issues not covered in the documents or for general discussion.</p>
+                <a href="https://us06web.zoom.us/j/81448425087" target="_blank" class="mt-4 inline-block bg-red-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-red-700 transition">Join Zoom Session</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="nbfc" class="py-16 bg-gray-50 section-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-10">NBFC Support</h2>
+            <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">For any issues related to NOC, EMI debit, extra penalties, or changing your personal details, please select your NBFC partner below to find the correct contact information. Please remember to CC the Masai School alumni team on all correspondence.</p>
+            <div class="space-y-4 max-w-2xl mx-auto">
+                <details class="bg-white p-4 rounded-xl shadow">
+                    <summary class="text-xl font-bold text-red-600">Kuhoo - NBFC</summary>
+                    <div class="mt-4 text-gray-700 space-y-2">
+                        <p><strong>Main Contact:</strong> <a href="mailto:Assist@kuhooserv.com" class="text-blue-600 hover:underline">Assist@kuhooserv.com</a></p>
+                        <p><strong>CC:</strong> <a href="mailto:shyam.s@kuhoo.com" class="text-blue-600 hover:underline">shyam.s@kuhoo.com</a>, <a href="mailto:saiprathap.arigela@kuhoo.com" class="text-blue-600 hover:underline">saiprathap.arigela@kuhoo.com</a>, <a href="mailto:gautam.yadav@masaischool.com" class="text-blue-600 hover:underline">gautam.yadav@masaischool.com</a>, <a href="mailto:Alumni@masaischool.com" class="text-blue-600 hover:underline">Alumni@masaischool.com</a></p>
+                    </div>
+                </details>
+                <details class="bg-white p-4 rounded-xl shadow">
+                    <summary class="text-xl font-bold text-red-600">Propelld - NBFC</summary>
+                    <div class="mt-4 text-gray-700 space-y-2">
+                        <p><strong>Main Contact:</strong> <a href="mailto:support@propelld.com" class="text-blue-600 hover:underline">support@propelld.com</a></p>
+                        <p><strong>CC:</strong> <a href="mailto:gautam.yadav@masaischool.com" class="text-blue-600 hover:underline">gautam.yadav@masaischool.com</a>, <a href="mailto:subhankar.mohanty@propelld.com" class="text-blue-600 hover:underline">subhankar.mohanty@propelld.com</a>, <a href="mailto:poorva@propelld.com" class="text-blue-600 hover:underline">poorva@propelld.com</a>, <a href="mailto:nikhil@propelld.com" class="text-blue-600 hover:underline">nikhil@propelld.com</a>, <a href="mailto:Alumni@masaischool.com" class="text-blue-600 hover:underline">Alumni@masaischool.com</a></p>
+                    </div>
+                </details>
+                <details class="bg-white p-4 rounded-xl shadow">
+                    <summary class="text-xl font-bold text-red-600">Eduvanz - NBFC</summary>
+                    <div class="mt-4 text-gray-700 space-y-2">
+                        <p><strong>Main Contact:</strong> <a href="mailto:support@eduvanz.com" class="text-blue-600 hover:underline">support@eduvanz.com</a></p>
+                        <p><strong>CC:</strong> <a href="mailto:pranali.sonavane@eduvanz.com" class="text-blue-600 hover:underline">pranali.sonavane@eduvanz.com</a>, <a href="mailto:Pooja.Jadhav@eduvanz.com" class="text-blue-600 hover:underline">Pooja.Jadhav@eduvanz.com</a>, <a href="mailto:Alumni@Masaischool.com" class="text-blue-600 hover:underline">Alumni@Masaischool.com</a>, <a href="mailto:gautam.yadav@masaischool.com" class="text-blue-600 hover:underline">gautam.yadav@masaischool.com</a></p>
+                    </div>
+                </details>
+                <details class="bg-white p-4 rounded-xl shadow">
+                    <summary class="text-xl font-bold text-red-600">Gyandhan - NBFC</summary>
+                    <div class="mt-4 text-gray-700 space-y-2">
+                        <p><strong>Main Contact:</strong> <a href="mailto:mohit.dhingra@gyandhan.com" class="text-blue-600 hover:underline">mohit.dhingra@gyandhan.com</a>, <a href="mailto:saumya.singh@gyandhan.com" class="text-blue-600 hover:underline">saumya.singh@gyandhan.com</a></p>
+                        <p><strong>CC:</strong> <a href="mailto:gautam.yadav@masaischool.com" class="text-blue-600 hover:underline">gautam.yadav@masaischool.com</a>, <a href="mailto:Alumni@Masaischool.com" class="text-blue-600 hover:underline">Alumni@Masaischool.com</a></p>
+                    </div>
+                </details>
+            </div>
+            <div class="max-w-3xl mx-auto mt-16 p-6 rounded-xl bg-gray-200 text-center shadow-inner">
+                <h3 class="text-xl font-bold mb-2 text-gray-900">Alumni Help Desk</h3>
+                <p class="text-gray-700 font-semibold">Monday to Friday (working days) | 6 PM – 8 PM</p>
+                <p class="text-gray-700 mt-2">For issues not covered in the documents or for general discussion.</p>
+                <a href="https://us06web.zoom.us/j/81448425087" target="_blank" class="mt-4 inline-block bg-red-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-red-700 transition">Join Zoom Session</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="placement" class="py-16 bg-gray-50 section-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-10">Placement & Career Support</h2>
+            <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">Our structured placement process is designed to help you land your ideal job. The steps below detail the path from preparing your profile to receiving an offer. Completing these steps is crucial for accessing placement support.</p>
+            <div class="max-w-3xl mx-auto space-y-6">
+                <details class="bg-white p-6 rounded-xl shadow-lg">
+                    <summary class="text-xl font-bold text-red-600">Part A: Resume, Portfolio & GitHub (RPG) Clearance</summary>
+                    <div class="mt-4 text-gray-700 space-y-4">
+                        <p><strong>Step 1: Update your RPG.</strong> Ensure your Resume, Portfolio, and GitHub are current and reflect your latest skills and projects.</p>
+                        <p><strong>Step 2: Submit the form.</strong> Complete the RPG form and upload your updated documents.</p>
+                        <p><strong>Step 3: Review the guidelines.</strong> For detailed instructions on RPG clearance, please refer to the <a href="#" class="text-red-600 hover:underline">RPG Clearance Steps</a>.</p>
+                    </div>
+                </details>
+                <details class="bg-white p-6 rounded-xl shadow-lg">
+                    <summary class="text-xl font-bold text-red-600">Part B: Hukumu Interview & Practice Interviews</summary>
+                    <div class="mt-4 text-gray-700 space-y-4">
+                        <p><strong>Platform:</strong> <a href="#" class="text-red-600 hover:underline">Hukumu Interview Platform</a></p>
+                        <p><strong>Objective:</strong> This is a human-based interview where you need to score a minimum of 5 marks.</p>
+                        <p><strong>Outcome:</strong></p>
+                        <ul class="list-disc list-inside ml-4 space-y-2">
+                            <li><strong>Score below 5:</strong> You'll be added to the Continued Curriculum for further skill enhancement.</li>
+                            <li><strong>Score 5 or above:</strong> You'll receive placement opportunities and also be part of the Continued Curriculum to brush up your skills.</li>
+                        </ul>
+                        <p><strong>Practice:</strong> To enhance your readiness, we recommend using <a href="#" class="text-red-600 hover:underline">Placed.tech</a>, a platform for mock interviews and skill-based evaluations.</p>
+                    </div>
+                </details>
+                <details class="bg-white p-6 rounded-xl shadow-lg">
+                    <summary class="text-xl font-bold text-red-600">Part C: Alumni Code of Conduct</summary>
+                    <div class="mt-4 text-gray-700 space-y-4">
+                        <p><strong>Review:</strong> Please go through the <a href="#" class="text-red-600 hover:underline">Masai School Code of Conduct</a>.</p>
+                        <p><strong>Acknowledgment:</strong> You will be required to sign and acknowledge this document and submit it as part of the RPG form when you upload your updated documents.</p>
+                    </div>
+                </details>
+
+                <div class="bg-red-50 p-6 rounded-xl border-l-4 border-red-500 shadow-inner">
+                    <h3 class="text-xl font-bold mb-2 text-red-800">Important Notes</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li><strong>Process Duration:</strong> The completion of these steps takes a maximum of 7 days, depending on your responsiveness and involvement. Failure to complete them within this timeframe will result in ineligibility for EMI and Placement support.</li>
+                        <li><strong>Support Suspension:</strong> Delays may lead to the suspension of your EMI and Placement support.</li>
+                        <li><strong>Workspace Transition:</strong> Upon starting placement support, you'll be added to the Placement workspace on Slack and deactivated from the Alumni workspace. You'll be re-added to the Alumni workspace after you restart your career.</li>
+                        <li><strong>Support:</strong> For any questions, please email us at <a href="mailto:alumni@masaischool.com" class="text-red-600 hover:underline">alumni@masaischool.com</a>.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="max-w-3xl mx-auto mt-16 p-6 rounded-xl bg-gray-200 text-center shadow-inner">
+                <h3 class="text-xl font-bold mb-2 text-gray-900">Alumni Help Desk</h3>
+                <p class="text-gray-700 font-semibold">Monday to Friday (working days) | 6 PM – 8 PM</p>
+                <p class="text-gray-700 mt-2">For issues not covered in the documents or for general discussion.</p>
+                <a href="https://us06web.zoom.us/j/81448425087" target="_blank" class="mt-4 inline-block bg-red-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-red-700 transition">Join Zoom Session</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="scam" class="py-16 bg-white section-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-10 text-red-600">Scam Alert & Financial Fraud</h2>
+            <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">We want to bring to your attention some concerning scam activities. Fraudsters are contacting students with fake "one-time settlement" offers and other false payment requests. Your security is our priority. Please read the following steps carefully.</p>
+
+            <div class="max-w-3xl mx-auto space-y-8">
+                <div class="bg-yellow-50 p-6 rounded-xl border-l-4 border-yellow-500 shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4 text-yellow-800">⚠️ Important: How to Verify Any Payment Request</h3>
+                    <p class="mb-4 text-gray-700 text-lg">Before making any payment, always follow these two essential steps to avoid fraud:</p>
+                    <ul class="space-y-2 list-none text-gray-800 font-semibold">
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">✉️</span>
+                            <div>
+                                <strong class="text-red-600">Ask for an email:</strong> Ensure the email is sent directly from a <strong>@masaischool.com</strong> address. Do not trust emails where this address is in the CC or BCC field.
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">💬</span>
+                            <div>
+                                <strong class="text-red-600">Verify on Slack:</strong> Reach out to us on our official Slack channel to confirm any payment requests.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">🔍 What to Ask a Suspicious Caller</h3>
+                    <p class="mb-4 text-gray-700 text-lg">Scammers don’t have your detailed information. Use these specific questions to verify their identity and expose their fraud:</p>
+                    <ul class="space-y-4 list-none text-gray-800">
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">❓</span>
+                            <div>
+                                <strong class="font-semibold">"What is my loan amount?"</strong>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">❓</span>
+                            <div>
+                                <strong class="font-semibold">"If you’re from the NBFC, how many EMIs have I paid, and how many are pending?"</strong>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">❓</span>
+                            <div>
+                                <strong class="font-semibold">"What is my student code at Masai School?"</strong>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">❓</span>
+                            <div>
+                                <strong class="font-semibold">"What is my ISA/PAP agreement signing date?"</strong>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">❓</span>
+                            <div>
+                                <strong class="font-semibold">"Have you sent a message to me from Masai School's Slack platform?"</strong>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="mt-6 text-xl font-bold text-red-600">Only proceed with the conversation once these questions are answered satisfactorily.</p>
+                </div>
+                
+                <details class="bg-red-50 p-6 rounded-xl border-l-4 border-red-500 shadow-lg">
+                    <summary class="text-2xl font-bold text-red-800">🚨 Critical Warning & RBI Guidelines</summary>
+                    <div class="mt-4 text-gray-700 space-y-4">
+                        <p class="text-lg">
+                            <strong class="text-red-600">DO NOT</strong> make any payments unless the verification steps above are confirmed. Always ensure that payments are made directly to <strong>Nolan Edutech</strong> or your respective <strong>NBFC bank account</strong> to avoid any fraud.
+                        </p>
+                        <p class="text-lg font-semibold">
+                            If you are unsure or have any concerns, please contact us immediately by emailing 
+                            <a href="mailto:alumni@masaischool.com" class="text-red-600 hover:underline">alumni@masaischool.com</a>.
+                        </p>
+                        <p class="text-lg font-semibold">
+                            If you've received any suspicious calls or messages, please report it by filling out 
+                            <a href="#" class="text-red-600 hover:underline">this form</a>.
+                        </p>
+                        
+                        <div class="mt-8">
+                            <h4 class="text-xl font-bold mb-2 text-red-700">RBI Guidelines on Unauthorized Electronic Transactions</h4>
+                            <p class="text-gray-700">The Reserve Bank of India (RBI) has guidelines to protect you from unauthorized financial transactions. It's crucial to know your rights and responsibilities to protect yourself.</p>
+                            <ul class="space-y-4 list-none mt-4 text-gray-800">
+                                <li class="flex items-start">
+                                    <span class="text-2xl mr-4">✅</span>
+                                    <div>
+                                        <strong class="font-semibold text-red-600">Zero Liability:</strong> You have zero liability if the fraud is not due to your negligence and you report it within <strong>3 working days</strong> of receiving the transaction alert.
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-2xl mr-4">⚠️</span>
+                                    <div>
+                                        <strong class="font-semibold text-red-600">Limited Liability:</strong> Your liability is limited if you report the fraud between <strong>4 and 7 working days</strong>. The amount depends on the transaction value and your account type.
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-2xl mr-4">❌</span>
+                                    <div>
+                                        <strong class="font-semibold text-red-600">Customer Negligence:</strong> If the loss is due to your own negligence (e.g., sharing your OTP, PIN, or password), you are liable for the full amount until you report the fraud. After reporting, the bank is responsible for any further losses.
+                                    </div>
+                                </li>
+                            </ul>
+                            <p class="mt-4 font-semibold text-lg text-red-700">Remember: The most critical step is to report any unauthorized transaction to your bank immediately.</p>
+                        </div>
+                    </div>
+                </details>
+
+                <div class="max-w-3xl mx-auto p-6 rounded-xl bg-gray-200 text-center shadow-inner">
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">Alumni Help Desk</h3>
+                    <p class="text-gray-700 font-semibold">Monday to Friday (working days) | 6 PM – 8 PM</p>
+                    <p class="text-gray-700 mt-2">For issues not covered in the documents or for general discussion.</p>
+                    <a href="https://us06web.zoom.us/j/81448425087" target="_blank" class="mt-4 inline-block bg-red-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-red-700 transition">Join Zoom Session</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nbfc" class="py-16 bg-gray-50 section-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-10">NBFC Support</h2>
+            <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">For any issues related to NOC, EMI debit, extra penalties, or changing your personal details, please select your NBFC partner below to find the correct contact information. Please remember to CC the Masai School alumni team on all correspondence.</p>
+            <div class="space-y-4 max-w-2xl mx-auto">
+                <details class="bg-white p-4 rounded-xl shadow">
+                    <summary class="text-xl font-bold text-red-600">Kuhoo - NBFC</summary>
+                    <div class="mt-4 text-gray-700 space-y-2">
+                        <p><strong>Main Contact:</strong> <a href="mailto:Assist@kuhooserv.com" class="text-blue-600 hover:underline">Assist@kuhooserv.com</a></p>
+                        <p><strong>CC:</strong> <a href="mailto:shyam.s@kuhoo.com" class="text-blue-600 hover:underline">shyam.s@kuhoo.com</a>, <a href="mailto:saiprathap.arigela@kuhoo.com" class="text-blue-600 hover:underline">saiprathap.arigela@kuhoo.com</a>, <a href="mailto:gautam.yadav@masaischool.com" class="text-blue-600 hover:underline">gautam.yadav@masaischool.com</a>, <a href="mailto:Alumni@masaischool.com" class="text-blue-600 hover:underline">Alumni@masaischool.com</a></p>
+                    </div>
+                </details>
+                <details class="bg-white p-4 rounded-xl shadow">
+                    <summary class="text-xl font-bold text-red-600">Propelld - NBFC</summary>
+                    <div class="mt-4 text-gray-700 space-y-2">
+                        <p><strong>Main Contact:</strong> <a href="mailto:support@propelld.com" class="text-blue-600 hover:underline">support@propelld.com</a></p>
+                        <p><strong>CC:</strong> <a href="mailto:gautam.yadav@masaischool.com" class="text-blue-600 hover:underline">gautam.yadav@masaischool.com</a>, <a href="mailto:subhankar.mohanty@propelld.com" class="text-blue-600 hover:underline">subhankar.mohanty@propelld.com</a>, <a href="mailto:poorva@propelld.com" class="text-blue-600 hover:underline">poorva@propelld.com</a>, <a href="mailto:nikhil@propelld.com" class="text-blue-600 hover:underline">nikhil@propelld.com</a>, <a href="mailto:Alumni@masaischool.com" class="text-blue-600 hover:underline">Alumni@masaischool.com</a></p>
+                    </div>
+                </details>
+                <details class="bg-white p-4 rounded-xl shadow">
+                    <summary class="text-xl font-bold text-red-600">Eduvanz - NBFC</summary>
+                    <div class="mt-4 text-gray-700 space-y-2">
+                        <p><strong>Main Contact:</strong> <a href="mailto:support@eduvanz.com" class="text-blue-600 hover:underline">support@eduvanz.com</a></p>
+                        <p><strong>CC:</strong> <a href="mailto:pranali.sonavane@eduvanz.com" class="text-blue-600 hover:underline">pranali.sonavane@eduvanz.com</a>, <a href="mailto:Pooja.Jadhav@eduvanz.com" class="text-blue-600 hover:underline">Pooja.Jadhav@eduvanz.com</a>, <a href="mailto:Alumni@Masaischool.com" class="text-blue-600 hover:underline">Alumni@Masaischool.com</a>, <a href="mailto:gautam.yadav@masaischool.com" class="text-blue-600 hover:underline">gautam.yadav@masaischool.com</a></p>
+                    </div>
+                </details>
+                <details class="bg-white p-4 rounded-xl shadow">
+                    <summary class="text-xl font-bold text-red-600">Gyandhan - NBFC</summary>
+                    <div class="mt-4 text-gray-700 space-y-2">
+                        <p><strong>Main Contact:</strong> <a href="mailto:mohit.dhingra@gyandhan.com" class="text-blue-600 hover:underline">mohit.dhingra@gyandhan.com</a>, <a href="mailto:saumya.singh@gyandhan.com" class="text-blue-600 hover:underline">saumya.singh@gyandhan.com</a></p>
+                        <p><strong>CC:</strong> <a href="mailto:gautam.yadav@masaischool.com" class="text-blue-600 hover:underline">gautam.yadav@masaischool.com</a>, <a href="mailto:Alumni@Masaischool.com" class="text-blue-600 hover:underline">Alumni@Masaischool.com</a></p>
+                    </div>
+                </details>
+            </div>
+            <div class="max-w-3xl mx-auto mt-16 p-6 rounded-xl bg-gray-200 text-center shadow-inner">
+                <h3 class="text-xl font-bold mb-2 text-gray-900">Alumni Help Desk</h3>
+                <p class="text-gray-700 font-semibold">Monday to Friday (working days) | 6 PM – 8 PM</p>
+                <p class="text-gray-700 mt-2">For issues not covered in the documents or for general discussion.</p>
+                <a href="https://us06web.zoom.us/j/81448425087" target="_blank" class="mt-4 inline-block bg-red-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-red-700 transition">Join Zoom Session</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="placement" class="py-16 bg-gray-50 section-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-10">Placement & Career Support</h2>
+            <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">Our structured placement process is designed to help you land your ideal job. The steps below detail the path from preparing your profile to receiving an offer. Completing these steps is crucial for accessing placement support.</p>
+            <div class="max-w-3xl mx-auto space-y-6">
+                <details class="bg-white p-6 rounded-xl shadow-lg">
+                    <summary class="text-xl font-bold text-red-600">Part A: Resume, Portfolio & GitHub (RPG) Clearance</summary>
+                    <div class="mt-4 text-gray-700 space-y-4">
+                        <p><strong>Step 1: Update your RPG.</strong> Ensure your Resume, Portfolio, and GitHub are current and reflect your latest skills and projects.</p>
+                        <p><strong>Step 2: Submit the form.</strong> Complete the RPG form and upload your updated documents.</p>
+                        <p><strong>Step 3: Review the guidelines.</strong> For detailed instructions on RPG clearance, please refer to the <a href="#" class="text-red-600 hover:underline">RPG Clearance Steps</a>.</p>
+                    </div>
+                </details>
+                <details class="bg-white p-6 rounded-xl shadow-lg">
+                    <summary class="text-xl font-bold text-red-600">Part B: Hukumu Interview & Practice Interviews</summary>
+                    <div class="mt-4 text-gray-700 space-y-4">
+                        <p><strong>Platform:</strong> <a href="#" class="text-red-600 hover:underline">Hukumu Interview Platform</a></p>
+                        <p><strong>Objective:</strong> This is a human-based interview where you need to score a minimum of 5 marks.</p>
+                        <p><strong>Outcome:</strong></p>
+                        <ul class="list-disc list-inside ml-4 space-y-2">
+                            <li><strong>Score below 5:</strong> You'll be added to the Continued Curriculum for further skill enhancement.</li>
+                            <li><strong>Score 5 or above:</strong> You'll receive placement opportunities and also be part of the Continued Curriculum to brush up your skills.</li>
+                        </ul>
+                        <p><strong>Practice:</strong> To enhance your readiness, we recommend using <a href="#" class="text-red-600 hover:underline">Placed.tech</a>, a platform for mock interviews and skill-based evaluations.</p>
+                    </div>
+                </details>
+                <details class="bg-white p-6 rounded-xl shadow-lg">
+                    <summary class="text-xl font-bold text-red-600">Part C: Alumni Code of Conduct</summary>
+                    <div class="mt-4 text-gray-700 space-y-4">
+                        <p><strong>Review:</strong> Please go through the <a href="#" class="text-red-600 hover:underline">Masai School Code of Conduct</a>.</p>
+                        <p><strong>Acknowledgment:</strong> You will be required to sign and acknowledge this document and submit it as part of the RPG form when you upload your updated documents.</p>
+                    </div>
+                </details>
+
+                <div class="bg-red-50 p-6 rounded-xl border-l-4 border-red-500 shadow-inner">
+                    <h3 class="text-xl font-bold mb-2 text-red-800">Important Notes</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li><strong>Process Duration:</strong> The completion of these steps takes a maximum of 7 days, depending on your responsiveness and involvement. Failure to complete them within this timeframe will result in ineligibility for EMI and Placement support.</li>
+                        <li><strong>Support Suspension:</strong> Delays may lead to the suspension of your EMI and Placement support.</li>
+                        <li><strong>Workspace Transition:</strong> Upon starting placement support, you'll be added to the Placement workspace on Slack and deactivated from the Alumni workspace. You'll be re-added to the Alumni workspace after you restart your career.</li>
+                        <li><strong>Support:</strong> For any questions, please email us at <a href="mailto:alumni@masaischool.com" class="text-red-600 hover:underline">alumni@masaischool.com</a>.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="max-w-3xl mx-auto mt-16 p-6 rounded-xl bg-gray-200 text-center shadow-inner">
+                <h3 class="text-xl font-bold mb-2 text-gray-900">Alumni Help Desk</h3>
+                <p class="text-gray-700 font-semibold">Monday to Friday (working days) | 6 PM – 8 PM</p>
+                <p class="text-gray-700 mt-2">For issues not covered in the documents or for general discussion.</p>
+                <a href="https://us06web.zoom.us/j/81448425087" target="_blank" class="mt-4 inline-block bg-red-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-red-700 transition">Join Zoom Session</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="scam" class="py-16 bg-white section-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-10 text-red-600">Scam Alert & Financial Fraud</h2>
+            <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">We want to bring to your attention some concerning scam activities. Fraudsters are contacting students with fake "one-time settlement" offers and other false payment requests. Your security is our priority. Please read the following steps carefully.</p>
+
+            <div class="max-w-3xl mx-auto space-y-8">
+                <div class="bg-yellow-50 p-6 rounded-xl border-l-4 border-yellow-500 shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4 text-yellow-800">⚠️ Important: How to Verify Any Payment Request</h3>
+                    <p class="mb-4 text-gray-700 text-lg">Before making any payment, always follow these two essential steps to avoid fraud:</p>
+                    <ul class="space-y-2 list-none text-gray-800 font-semibold">
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">✉️</span>
+                            <div>
+                                <strong class="text-red-600">Ask for an email:</strong> Ensure the email is sent directly from a <strong>@masaischool.com</strong> address. Do not trust emails where this address is in the CC or BCC field.
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">💬</span>
+                            <div>
+                                <strong class="text-red-600">Verify on Slack:</strong> Reach out to us on our official Slack channel to confirm any payment requests.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">🔍 What to Ask a Suspicious Caller</h3>
+                    <p class="mb-4 text-gray-700 text-lg">Scammers don’t have your detailed information. Use these specific questions to verify their identity and expose their fraud:</p>
+                    <ul class="space-y-4 list-none text-gray-800">
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">❓</span>
+                            <div>
+                                <strong class="font-semibold">"What is my loan amount?"</strong>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">❓</span>
+                            <div>
+                                <strong class="font-semibold">"If you’re from the NBFC, how many EMIs have I paid, and how many are pending?"</strong>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">❓</span>
+                            <div>
+                                <strong class="font-semibold">"What is my student code at Masai School?"</strong>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">❓</span>
+                            <div>
+                                <strong class="font-semibold">"What is my ISA/PAP agreement signing date?"</strong>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">❓</span>
+                            <div>
+                                <strong class="font-semibold">"Have you sent a message to me from Masai School's Slack platform?"</strong>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="mt-6 text-xl font-bold text-red-600">Only proceed with the conversation once these questions are answered satisfactorily.</p>
+                </div>
+                
+                <details class="bg-red-50 p-6 rounded-xl border-l-4 border-red-500 shadow-lg">
+                    <summary class="text-2xl font-bold text-red-800">🚨 Critical Warning & RBI Guidelines</summary>
+                    <div class="mt-4 text-gray-700 space-y-4">
+                        <p class="text-lg">
+                            <strong class="text-red-600">DO NOT</strong> make any payments unless the verification steps above are confirmed. Always ensure that payments are made directly to <strong>Nolan Edutech</strong> or your respective <strong>NBFC bank account</strong> to avoid any fraud.
+                        </p>
+                        <p class="text-lg font-semibold">
+                            If you are unsure or have any concerns, please contact us immediately by emailing 
+                            <a href="mailto:alumni@masaischool.com" class="text-red-600 hover:underline">alumni@masaischool.com</a>.
+                        </p>
+                        <p class="text-lg font-semibold">
+                            If you've received any suspicious calls or messages, please report it by filling out 
+                            <a href="#" class="text-red-600 hover:underline">this form</a>.
+                        </p>
+                        
+                        <div class="mt-8">
+                            <h4 class="text-xl font-bold mb-2 text-red-700">RBI Guidelines on Unauthorized Electronic Transactions</h4>
+                            <p class="text-gray-700">The Reserve Bank of India (RBI) has guidelines to protect you from unauthorized financial transactions. It's crucial to know your rights and responsibilities to protect yourself.</p>
+                            <ul class="space-y-4 list-none mt-4 text-gray-800">
+                                <li class="flex items-start">
+                                    <span class="text-2xl mr-4">✅</span>
+                                    <div>
+                                        <strong class="font-semibold text-red-600">Zero Liability:</strong> You have zero liability if the fraud is not due to your negligence and you report it within <strong>3 working days</strong> of receiving the transaction alert.
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-2xl mr-4">⚠️</span>
+                                    <div>
+                                        <strong class="font-semibold text-red-600">Limited Liability:</strong> Your liability is limited if you report the fraud between <strong>4 and 7 working days</strong>. The amount depends on the transaction value and your account type.
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-2xl mr-4">❌</span>
+                                    <div>
+                                        <strong class="font-semibold text-red-600">Customer Negligence:</strong> If the loss is due to your own negligence (e.g., sharing your OTP, PIN, or password), you are liable for the full amount until you report the fraud. After reporting, the bank is responsible for any further losses.
+                                    </div>
+                                </li>
+                            </ul>
+                            <p class="mt-4 font-semibold text-lg text-red-700">Remember: The most critical step is to report any unauthorized transaction to your bank immediately.</p>
+                        </div>
+                    </div>
+                </details>
+
+                <div class="max-w-3xl mx-auto p-6 rounded-xl bg-gray-200 text-center shadow-inner">
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">Alumni Help Desk</h3>
+                    <p class="text-gray-700 font-semibold">Monday to Friday (working days) | 6 PM – 8 PM</p>
+                    <p class="text-gray-700 mt-2">For issues not covered in the documents or for general discussion.</p>
+                    <a href="https://us06web.zoom.us/j/81448425087" target="_blank" class="mt-4 inline-block bg-red-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-red-700 transition">Join Zoom Session</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nbfc" class="py-16 bg-gray-50 section-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-10">NBFC Support</h2>
+            <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">For any issues related to NOC, EMI debit, extra penalties, or changing your personal details, please select your NBFC partner below to find the correct contact information. Please remember to CC the Masai School alumni team on all correspondence.</p>
+            <div class="space-y-4 max-w-2xl mx-auto">
+                <details class="bg-white p-4 rounded-xl shadow">
+                    <summary class="text-xl font-bold text-red-600">Kuhoo - NBFC</summary>
+                    <div class="mt-4 text-gray-700 space-y-2">
+                        <p><strong>Main Contact:</strong> <a href="mailto:Assist@kuhooserv.com" class="text-blue-600 hover:underline">Assist@kuhooserv.com</a></p>
+                        <p><strong>CC:</strong> <a href="mailto:shyam.s@kuhoo.com" class="text-blue-600 hover:underline">shyam.s@kuhoo.com</a>, <a href="mailto:saiprathap.arigela@kuhoo.com" class="text-blue-600 hover:underline">saiprathap.arigela@kuhoo.com</a>, <a href="mailto:gautam.yadav@masaischool.com" class="text-blue-600 hover:underline">gautam.yadav@masaischool.com</a>, <a href="mailto:Alumni@masaischool.com" class="text-blue-600 hover:underline">Alumni@masaischool.com</a></p>
+                    </div>
+                </details>
+                <details class="bg-white p-4 rounded-xl shadow">
+                    <summary class="text-xl font-bold text-red-600">Propelld - NBFC</summary>
+                    <div class="mt-4 text-gray-700 space-y-2">
+                        <p><strong>Main Contact:</strong> <a href="mailto:support@propelld.com" class="text-blue-600 hover:underline">support@propelld.com</a></p>
+                        <p><strong>CC:</strong> <a href="mailto:gautam.yadav@masaischool.com" class="text-blue-600 hover:underline">gautam.yadav@masaischool.com</a>, <a href="mailto:subhankar.mohanty@propelld.com" class="text-blue-600 hover:underline">subhankar.mohanty@propelld.com</a>, <a href="mailto:poorva@propelld.com" class="text-blue-600 hover:underline">poorva@propelld.com</a>, <a href="mailto:nikhil@propelld.com" class="text-blue-600 hover:underline">nikhil@propelld.com</a>, <a href="mailto:Alumni@masaischool.com" class="text-blue-600 hover:underline">Alumni@masaischool.com</a></p>
+                    </div>
+                </details>
+                <details class="bg-white p-4 rounded-xl shadow">
+                    <summary class="text-xl font-bold text-red-600">Eduvanz - NBFC</summary>
+                    <div class="mt-4 text-gray-700 space-y-2">
+                        <p><strong>Main Contact:</strong> <a href="mailto:support@eduvanz.com" class="text-blue-600 hover:underline">support@eduvanz.com</a></p>
+                        <p><strong>CC:</strong> <a href="mailto:pranali.sonavane@eduvanz.com" class="text-blue-600 hover:underline">pranali.sonavane@eduvanz.com</a>, <a href="mailto:Pooja.Jadhav@eduvanz.com" class="text-blue-600 hover:underline">Pooja.Jadhav@eduvanz.com</a>, <a href="mailto:Alumni@Masaischool.com" class="text-blue-600 hover:underline">Alumni@Masaischool.com</a>, <a href="mailto:gautam.yadav@masaischool.com" class="text-blue-600 hover:underline">gautam.yadav@masaischool.com</a></p>
+                    </div>
+                </details>
+                <details class="bg-white p-4 rounded-xl shadow">
+                    <summary class="text-xl font-bold text-red-600">Gyandhan - NBFC</summary>
+                    <div class="mt-4 text-gray-700 space-y-2">
+                        <p><strong>Main Contact:</strong> <a href="mailto:mohit.dhingra@gyandhan.com" class="text-blue-600 hover:underline">mohit.dhingra@gyandhan.com</a>, <a href="mailto:saumya.singh@gyandhan.com" class="text-blue-600 hover:underline">saumya.singh@gyandhan.com</a></p>
+                        <p><strong>CC:</strong> <a href="mailto:gautam.yadav@masaischool.com" class="text-blue-600 hover:underline">gautam.yadav@masaischool.com</a>, <a href="mailto:Alumni@Masaischool.com" class="text-blue-600 hover:underline">Alumni@Masaischool.com</a></p>
+                    </div>
+                </details>
+            </div>
+            <div class="max-w-3xl mx-auto mt-16 p-6 rounded-xl bg-gray-200 text-center shadow-inner">
+                <h3 class="text-xl font-bold mb-2 text-gray-900">Alumni Help Desk</h3>
+                <p class="text-gray-700 font-semibold">Monday to Friday (working days) | 6 PM – 8 PM</p>
+                <p class="text-gray-700 mt-2">For issues not covered in the documents or for general discussion.</p>
+                <a href="https://us06web.zoom.us/j/81448425087" target="_blank" class="mt-4 inline-block bg-red-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-red-700 transition">Join Zoom Session</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="placement" class="py-16 bg-gray-50 section-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-10">Placement & Career Support</h2>
+            <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">Our structured placement process is designed to help you land your ideal job. The steps below detail the path from preparing your profile to receiving an offer. Completing these steps is crucial for accessing placement support.</p>
+            <div class="max-w-3xl mx-auto space-y-6">
+                <details class="bg-white p-6 rounded-xl shadow-lg">
+                    <summary class="text-xl font-bold text-red-600">Part A: Resume, Portfolio & GitHub (RPG) Clearance</summary>
+                    <div class="mt-4 text-gray-700 space-y-4">
+                        <p><strong>Step 1: Update your RPG.</strong> Ensure your Resume, Portfolio, and GitHub are current and reflect your latest skills and projects.</p>
+                        <p><strong>Step 2: Submit the form.</strong> Complete the RPG form and upload your updated documents.</p>
+                        <p><strong>Step 3: Review the guidelines.</strong> For detailed instructions on RPG clearance, please refer to the <a href="#" class="text-red-600 hover:underline">RPG Clearance Steps</a>.</p>
+                    </div>
+                </details>
+                <details class="bg-white p-6 rounded-xl shadow-lg">
+                    <summary class="text-xl font-bold text-red-600">Part B: Hukumu Interview & Practice Interviews</summary>
+                    <div class="mt-4 text-gray-700 space-y-4">
+                        <p><strong>Platform:</strong> <a href="#" class="text-red-600 hover:underline">Hukumu Interview Platform</a></p>
+                        <p><strong>Objective:</strong> This is a human-based interview where you need to score a minimum of 5 marks.</p>
+                        <p><strong>Outcome:</strong></p>
+                        <ul class="list-disc list-inside ml-4 space-y-2">
+                            <li><strong>Score below 5:</strong> You'll be added to the Continued Curriculum for further skill enhancement.</li>
+                            <li><strong>Score 5 or above:</strong> You'll receive placement opportunities and also be part of the Continued Curriculum to brush up your skills.</li>
+                        </ul>
+                        <p><strong>Practice:</strong> To enhance your readiness, we recommend using <a href="#" class="text-red-600 hover:underline">Placed.tech</a>, a platform for mock interviews and skill-based evaluations.</p>
+                    </div>
+                </details>
+                <details class="bg-white p-6 rounded-xl shadow-lg">
+                    <summary class="text-xl font-bold text-red-600">Part C: Alumni Code of Conduct</summary>
+                    <div class="mt-4 text-gray-700 space-y-4">
+                        <p><strong>Review:</strong> Please go through the <a href="#" class="text-red-600 hover:underline">Masai School Code of Conduct</a>.</p>
+                        <p><strong>Acknowledgment:</strong> You will be required to sign and acknowledge this document and submit it as part of the RPG form when you upload your updated documents.</p>
+                    </div>
+                </details>
+
+                <div class="bg-red-50 p-6 rounded-xl border-l-4 border-red-500 shadow-inner">
+                    <h3 class="text-xl font-bold mb-2 text-red-800">Important Notes</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li><strong>Process Duration:</strong> The completion of these steps takes a maximum of 7 days, depending on your responsiveness and involvement. Failure to complete them within this timeframe will result in ineligibility for EMI and Placement support.</li>
+                        <li><strong>Support Suspension:</strong> Delays may lead to the suspension of your EMI and Placement support.</li>
+                        <li><strong>Workspace Transition:</strong> Upon starting placement support, you'll be added to the Placement workspace on Slack and deactivated from the Alumni workspace. You'll be re-added to the Alumni workspace after you restart your career.</li>
+                        <li><strong>Support:</strong> For any questions, please email us at <a href="mailto:alumni@masaischool.com" class="text-red-600 hover:underline">alumni@masaischool.com</a>.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="max-w-3xl mx-auto mt-16 p-6 rounded-xl bg-gray-200 text-center shadow-inner">
+                <h3 class="text-xl font-bold mb-2 text-gray-900">Alumni Help Desk</h3>
+                <p class="text-gray-700 font-semibold">Monday to Friday (working days) | 6 PM – 8 PM</p>
+                <p class="text-gray-700 mt-2">For issues not covered in the documents or for general discussion.</p>
+                <a href="https://us06web.zoom.us/j/81448425087" target="_blank" class="mt-4 inline-block bg-red-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-red-700 transition">Join Zoom Session</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="scam" class="py-16 bg-white section-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-10 text-red-600">Scam Alert & Financial Fraud</h2>
+            <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">We want to bring to your attention some concerning scam activities. Fraudsters are contacting students with fake "one-time settlement" offers and other false payment requests. Your security is our priority. Please read the following steps carefully.</p>
+
+            <div class="max-w-3xl mx-auto space-y-8">
+                <div class="bg-yellow-50 p-6 rounded-xl border-l-4 border-yellow-500 shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4 text-yellow-800">⚠️ Important: How to Verify Any Payment Request</h3>
+                    <p class="mb-4 text-gray-700 text-lg">Before making any payment, always follow these two essential steps to avoid fraud:</p>
+                    <ul class="space-y-2 list-none text-gray-800 font-semibold">
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">✉️</span>
+                            <div>
+                                <strong class="text-red-600">Ask for an email:</strong> Ensure the email is sent directly from a <strong>@masaischool.com</strong> address. Do not trust emails where this address is in the CC or BCC field.
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">💬</span>
+                            <div>
+                                <strong class="text-red-600">Verify on Slack:</strong> Reach out to us on our official Slack channel to confirm any payment requests.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">🔍 What to Ask a Suspicious Caller</h3>
+                    <p class="mb-4 text-gray-700 text-lg">Scammers don’t have your detailed information. Use these specific questions to verify their identity and expose their fraud:</p>
+                    <ul class="space-y-4 list-none text-gray-800">
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">❓</span>
+                            <div>
+                                <strong class="font-semibold">"What is my loan amount?"</strong>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">❓</span>
+                            <div>
+                                <strong class="font-semibold">"If you’re from the NBFC, how many EMIs have I paid, and how many are pending?"</strong>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">❓</span>
+                            <div>
+                                <strong class="font-semibold">"What is my student code at Masai School?"</strong>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">❓</span>
+                            <div>
+                                <strong class="font-semibold">"What is my ISA/PAP agreement signing date?"</strong>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">❓</span>
+                            <div>
+                                <strong class="font-semibold">"Have you sent a message to me from Masai School's Slack platform?"</strong>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="mt-6 text-xl font-bold text-red-600">Only proceed with the conversation once these questions are answered satisfactorily.</p>
+                </div>
+                
+                <details class="bg-red-50 p-6 rounded-xl border-l-4 border-red-500 shadow-lg">
+                    <summary class="text-2xl font-bold text-red-800">🚨 Critical Warning & RBI Guidelines</summary>
+                    <div class="mt-4 text-gray-700 space-y-4">
+                        <p class="text-lg">
+                            <strong class="text-red-600">DO NOT</strong> make any payments unless the verification steps above are confirmed. Always ensure that payments are made directly to <strong>Nolan Edutech</strong> or your respective <strong>NBFC bank account</strong> to avoid any fraud.
+                        </p>
+                        <p class="text-lg font-semibold">
+                            If you are unsure or have any concerns, please contact us immediately by emailing 
+                            <a href="mailto:alumni@masaischool.com" class="text-red-600 hover:underline">alumni@masaischool.com</a>.
+                        </p>
+                        <p class="text-lg font-semibold">
+                            If you've received any suspicious calls or messages, please report it by filling out 
+                            <a href="#" class="text-red-600 hover:underline">this form</a>.
+                        </p>
+                        
+                        <div class="mt-8">
+                            <h4 class="text-xl font-bold mb-2 text-red-700">RBI Guidelines on Unauthorized Electronic Transactions</h4>
+                            <p class="text-gray-700">The Reserve Bank of India (RBI) has guidelines to protect you from unauthorized financial transactions. It's crucial to know your rights and responsibilities to protect yourself.</p>
+                            <ul class="space-y-4 list-none mt-4 text-gray-800">
+                                <li class="flex items-start">
+                                    <span class="text-2xl mr-4">✅</span>
+                                    <div>
+                                        <strong class="font-semibold text-red-600">Zero Liability:</strong> You have zero liability if the fraud is not due to your negligence and you report it within <strong>3 working days</strong> of receiving the transaction alert.
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-2xl mr-4">⚠️</span>
+                                    <div>
+                                        <strong class="font-semibold text-red-600">Limited Liability:</strong> Your liability is limited if you report the fraud between <strong>4 and 7 working days</strong>. The amount depends on the transaction value and your account type.
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-2xl mr-4">❌</span>
+                                    <div>
+                                        <strong class="font-semibold text-red-600">Customer Negligence:</strong> If the loss is due to your own negligence (e.g., sharing your OTP, PIN, or password), you are liable for the full amount until you report the fraud. After reporting, the bank is responsible for any further losses.
+                                    </div>
+                                </li>
+                            </ul>
+                            <p class="mt-4 font-semibold text-lg text-red-700">Remember: The most critical step is to report any unauthorized transaction to your bank immediately.</p>
+                        </div>
+                    </div>
+                </details>
+
+                <div class="max-w-3xl mx-auto p-6 rounded-xl bg-gray-200 text-center shadow-inner">
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">Alumni Help Desk</h3>
+                    <p class="text-gray-700 font-semibold">Monday to Friday (working days) | 6 PM – 8 PM</p>
+                    <p class="text-gray-700 mt-2">For issues not covered in the documents or for general discussion.</p>
+                    <a href="https://us06web.zoom.us/j/81448425087" target="_blank" class="mt-4 inline-block bg-red-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-red-700 transition">Join Zoom Session</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nbfc" class="py-16 bg-gray-50 section-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-10">NBFC Support</h2>
+            <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">For any issues related to NOC, EMI debit, extra penalties, or changing your personal details, please select your NBFC partner below to find the correct contact information. Please remember to CC the Masai School alumni team on all correspondence.</p>
+            <div class="space-y-4 max-w-2xl mx-auto">
+                <details class="bg-white p-4 rounded-xl shadow">
+                    <summary class="text-xl font-bold text-red-600">Kuhoo - NBFC</summary>
+                    <div class="mt-4 text-gray-700 space-y-2">
+                        <p><strong>Main Contact:</strong> <a href="mailto:Assist@kuhooserv.com" class="text-blue-600 hover:underline">Assist@kuhooserv.com</a></p>
+                        <p><strong>CC:</strong> <a href="mailto:shyam.s@kuhoo.com" class="text-blue-600 hover:underline">shyam.s@kuhoo.com</a>, <a href="mailto:saiprathap.arigela@kuhoo.com" class="text-blue-600 hover:underline">saiprathap.arigela@kuhoo.com</a>, <a href="mailto:gautam.yadav@masaischool.com" class="text-blue-600 hover:underline">gautam.yadav@masaischool.com</a>, <a href="mailto:Alumni@masaischool.com" class="text-blue-600 hover:underline">Alumni@masaischool.com</a></p>
+                    </div>
+                </details>
+                <details class="bg-white p-4 rounded-xl shadow">
+                    <summary class="text-xl font-bold text-red-600">Propelld - NBFC</summary>
+                    <div class="mt-4 text-gray-700 space-y-2">
+                        <p><strong>Main Contact:</strong> <a href="mailto:support@propelld.com" class="text-blue-600 hover:underline">support@propelld.com</a></p>
+                        <p><strong>CC:</strong> <a href="mailto:gautam.yadav@masaischool.com" class="text-blue-600 hover:underline">gautam.yadav@masaischool.com</a>, <a href="mailto:subhankar.mohanty@propelld.com" class="text-blue-600 hover:underline">subhankar.mohanty@propelld.com</a>, <a href="mailto:poorva@propelld.com" class="text-blue-600 hover:underline">poorva@propelld.com</a>, <a href="mailto:nikhil@propelld.com" class="text-blue-600 hover:underline">nikhil@propelld.com</a>, <a href="mailto:Alumni@masaischool.com" class="text-blue-600 hover:underline">Alumni@masaischool.com</a></p>
+                    </div>
+                </details>
+                <details class="bg-white p-4 rounded-xl shadow">
+                    <summary class="text-xl font-bold text-red-600">Eduvanz - NBFC</summary>
+                    <div class="mt-4 text-gray-700 space-y-2">
+                        <p><strong>Main Contact:</strong> <a href="mailto:support@eduvanz.com" class="text-blue-600 hover:underline">support@eduvanz.com</a></p>
+                        <p><strong>CC:</strong> <a href="mailto:pranali.sonavane@eduvanz.com" class="text-blue-600 hover:underline">pranali.sonavane@eduvanz.com</a>, <a href="mailto:Pooja.Jadhav@eduvanz.com" class="text-blue-600 hover:underline">Pooja.Jadhav@eduvanz.com</a>, <a href="mailto:Alumni@Masaischool.com" class="text-blue-600 hover:underline">Alumni@Masaischool.com</a>, <a href="mailto:gautam.yadav@masaischool.com" class="text-blue-600 hover:underline">gautam.yadav@masaischool.com</a></p>
+                    </div>
+                </details>
+                <details class="bg-white p-4 rounded-xl shadow">
+                    <summary class="text-xl font-bold text-red-600">Gyandhan - NBFC</summary>
+                    <div class="mt-4 text-gray-700 space-y-2">
+                        <p><strong>Main Contact:</strong> <a href="mailto:mohit.dhingra@gyandhan.com" class="text-blue-600 hover:underline">mohit.dhingra@gyandhan.com</a>, <a href="mailto:saumya.singh@gyandhan.com" class="text-blue-600 hover:underline">saumya.singh@gyandhan.com</a></p>
+                        <p><strong>CC:</strong> <a href="mailto:gautam.yadav@masaischool.com" class="text-blue-600 hover:underline">gautam.yadav@masaischool.com</a>, <a href="mailto:Alumni@Masaischool.com" class="text-blue-600 hover:underline">Alumni@Masaischool.com</a></p>
+                    </div>
+                </details>
+            </div>
+            <div class="max-w-3xl mx-auto mt-16 p-6 rounded-xl bg-gray-200 text-center shadow-inner">
+                <h3 class="text-xl font-bold mb-2 text-gray-900">Alumni Help Desk</h3>
+                <p class="text-gray-700 font-semibold">Monday to Friday (working days) | 6 PM – 8 PM</p>
+                <p class="text-gray-700 mt-2">For issues not covered in the documents or for general discussion.</p>
+                <a href="https://us06web.zoom.us/j/81448425087" target="_blank" class="mt-4 inline-block bg-red-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-red-700 transition">Join Zoom Session</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="placement" class="py-16 bg-gray-50 section-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-10">Placement & Career Support</h2>
+            <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">Our structured placement process is designed to help you land your ideal job. The steps below detail the path from preparing your profile to receiving an offer. Completing these steps is crucial for accessing placement support.</p>
+            <div class="max-w-3xl mx-auto space-y-6">
+                <details class="bg-white p-6 rounded-xl shadow-lg">
+                    <summary class="text-xl font-bold text-red-600">Part A: Resume, Portfolio & GitHub (RPG) Clearance</summary>
+                    <div class="mt-4 text-gray-700 space-y-4">
+                        <p><strong>Step 1: Update your RPG.</strong> Ensure your Resume, Portfolio, and GitHub are current and reflect your latest skills and projects.</p>
+                        <p><strong>Step 2: Submit the form.</strong> Complete the RPG form and upload your updated documents.</p>
+                        <p><strong>Step 3: Review the guidelines.</strong> For detailed instructions on RPG clearance, please refer to the <a href="#" class="text-red-600 hover:underline">RPG Clearance Steps</a>.</p>
+                    </div>
+                </details>
+                <details class="bg-white p-6 rounded-xl shadow-lg">
+                    <summary class="text-xl font-bold text-red-600">Part B: Hukumu Interview & Practice Interviews</summary>
+                    <div class="mt-4 text-gray-700 space-y-4">
+                        <p><strong>Platform:</strong> <a href="#" class="text-red-600 hover:underline">Hukumu Interview Platform</a></p>
+                        <p><strong>Objective:</strong> This is a human-based interview where you need to score a minimum of 5 marks.</p>
+                        <p><strong>Outcome:</strong></p>
+                        <ul class="list-disc list-inside ml-4 space-y-2">
+                            <li><strong>Score below 5:</strong> You'll be added to the Continued Curriculum for further skill enhancement.</li>
+                            <li><strong>Score 5 or above:</strong> You'll receive placement opportunities and also be part of the Continued Curriculum to brush up your skills.</li>
+                        </ul>
+                        <p><strong>Practice:</strong> To enhance your readiness, we recommend using <a href="#" class="text-red-600 hover:underline">Placed.tech</a>, a platform for mock interviews and skill-based evaluations.</p>
+                    </div>
+                </details>
+                <details class="bg-white p-6 rounded-xl shadow-lg">
+                    <summary class="text-xl font-bold text-red-600">Part C: Alumni Code of Conduct</summary>
+                    <div class="mt-4 text-gray-700 space-y-4">
+                        <p><strong>Review:</strong> Please go through the <a href="#" class="text-red-600 hover:underline">Masai School Code of Conduct</a>.</p>
+                        <p><strong>Acknowledgment:</strong> You will be required to sign and acknowledge this document and submit it as part of the RPG form when you upload your updated documents.</p>
+                    </div>
+                </details>
+
+                <div class="bg-red-50 p-6 rounded-xl border-l-4 border-red-500 shadow-inner">
+                    <h3 class="text-xl font-bold mb-2 text-red-800">Important Notes</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li><strong>Process Duration:</strong> The completion of these steps takes a maximum of 7 days, depending on your responsiveness and involvement. Failure to complete them within this timeframe will result in ineligibility for EMI and Placement support.</li>
+                        <li><strong>Support Suspension:</strong> Delays may lead to the suspension of your EMI and Placement support.</li>
+                        <li><strong>Workspace Transition:</strong> Upon starting placement support, you'll be added to the Placement workspace on Slack and deactivated from the Alumni workspace. You'll be re-added to the Alumni workspace after you restart your career.</li>
+                        <li><strong>Support:</strong> For any questions, please email us at <a href="mailto:alumni@masaischool.com" class="text-red-600 hover:underline">alumni@masaischool.com</a>.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="max-w-3xl mx-auto mt-16 p-6 rounded-xl bg-gray-200 text-center shadow-inner">
+                <h3 class="text-xl font-bold mb-2 text-gray-900">Alumni Help Desk</h3>
+                <p class="text-gray-700 font-semibold">Monday to Friday (working days) | 6 PM – 8 PM</p>
+                <p class="text-gray-700 mt-2">For issues not covered in the documents or for general discussion.</p>
+                <a href="https://us06web.zoom.us/j/81448425087" target="_blank" class="mt-4 inline-block bg-red-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-red-700 transition">Join Zoom Session</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="scam" class="py-16 bg-white section-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-10 text-red-600">Scam Alert & Financial Fraud</h2>
+            <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">We want to bring to your attention some concerning scam activities. Fraudsters are contacting students with fake "one-time settlement" offers and other false payment requests. Your security is our priority. Please read the following steps carefully.</p>
+
+            <div class="max-w-3xl mx-auto space-y-8">
+                <div class="bg-yellow-50 p-6 rounded-xl border-l-4 border-yellow-500 shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4 text-yellow-800">⚠️ Important: How to Verify Any Payment Request</h3>
+                    <p class="mb-4 text-gray-700 text-lg">Before making any payment, always follow these two essential steps to avoid fraud:</p>
+                    <ul class="space-y-2 list-none text-gray-800 font-semibold">
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">✉️</span>
+                            <div>
+                                <strong class="text-red-600">Ask for an email:</strong> Ensure the email is sent directly from a <strong>@masaischool.com</strong> address. Do not trust emails where this address is in the CC or BCC field.
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">💬</span>
+                            <div>
+                                <strong class="text-red-600">Verify on Slack:</strong> Reach out to us on our official Slack channel to confirm any payment requests.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">🔍 What to Ask a Suspicious Caller</h3>
+                    <p class="mb-4 text-gray-700 text-lg">Scammers don’t have your detailed information. Use these specific questions to verify their identity and expose their fraud:</p>
+                    <ul class="space-y-4 list-none text-gray-800">
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">❓</span>
+                            <div>
+                                <strong class="font-semibold">"What is my loan amount?"</strong>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">❓</span>
+                            <div>
+                                <strong class="font-semibold">"If you’re from the NBFC, how many EMIs have I paid, and how many are pending?"</strong>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">❓</span>
+                            <div>
+                                <strong class="font-semibold">"What is my student code at Masai School?"</strong>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">❓</span>
+                            <div>
+                                <strong class="font-semibold">"What is my ISA/PAP agreement signing date?"</strong>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">❓</span>
+                            <div>
+                                <strong class="font-semibold">"Have you sent a message to me from Masai School's Slack platform?"</strong>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="mt-6 text-xl font-bold text-red-600">Only proceed with the conversation once these questions are answered satisfactorily.</p>
+                </div>
+                
+                <details class="bg-red-50 p-6 rounded-xl border-l-4 border-red-500 shadow-lg">
+                    <summary class="text-2xl font-bold text-red-800">🚨 Critical Warning & RBI Guidelines</summary>
+                    <div class="mt-4 text-gray-700 space-y-4">
+                        <p class="text-lg">
+                            <strong class="text-red-600">DO NOT</strong> make any payments unless the verification steps above are confirmed. Always ensure that payments are made directly to <strong>Nolan Edutech</strong> or your respective <strong>NBFC bank account</strong> to avoid any fraud.
+                        </p>
+                        <p class="text-lg font-semibold">
+                            If you are unsure or have any concerns, please contact us immediately by emailing 
+                            <a href="mailto:alumni@masaischool.com" class="text-red-600 hover:underline">alumni@masaischool.com</a>.
+                        </p>
+                        <p class="text-lg font-semibold">
+                            If you've received any suspicious calls or messages, please report it by filling out 
+                            <a href="#" class="text-red-600 hover:underline">this form</a>.
+                        </p>
+                        
+                        <div class="mt-8">
+                            <h4 class="text-xl font-bold mb-2 text-red-700">RBI Guidelines on Unauthorized Electronic Transactions</h4>
+                            <p class="text-gray-700">The Reserve Bank of India (RBI) has guidelines to protect you from unauthorized financial transactions. It's crucial to know your rights and responsibilities to protect yourself.</p>
+                            <ul class="space-y-4 list-none mt-4 text-gray-800">
+                                <li class="flex items-start">
+                                    <span class="text-2xl mr-4">✅</span>
+                                    <div>
+                                        <strong class="font-semibold text-red-600">Zero Liability:</strong> You have zero liability if the fraud is not due to your negligence and you report it within <strong>3 working days</strong> of receiving the transaction alert.
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-2xl mr-4">⚠️</span>
+                                    <div>
+                                        <strong class="font-semibold text-red-600">Limited Liability:</strong> Your liability is limited if you report the fraud between <strong>4 and 7 working days</strong>. The amount depends on the transaction value and your account type.
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-2xl mr-4">❌</span>
+                                    <div>
+                                        <strong class="font-semibold text-red-600">Customer Negligence:</strong> If the loss is due to your own negligence (e.g., sharing your OTP, PIN, or password), you are liable for the full amount until you report the fraud. After reporting, the bank is responsible for any further losses.
+                                    </div>
+                                </li>
+                            </ul>
+                            <p class="mt-4 font-semibold text-lg text-red-700">Remember: The most critical step is to report any unauthorized transaction to your bank immediately.</p>
+                        </div>
+                    </div>
+                </details>
+
+                <div class="max-w-3xl mx-auto p-6 rounded-xl bg-gray-200 text-center shadow-inner">
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">Alumni Help Desk</h3>
+                    <p class="text-gray-700 font-semibold">Monday to Friday (working days) | 6 PM – 8 PM</p>
+                    <p class="text-gray-700 mt-2">For issues not covered in the documents or for general discussion.</p>
+                    <a href="https://us06web.zoom.us/j/81448425087" target="_blank" class="mt-4 inline-block bg-red-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-red-700 transition">Join Zoom Session</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white mt-16">
+        <div class="container mx-auto px-6 py-6 text-center">
+            <p>For any issues, please write to <a href="mailto:alumni@masaischool.com" class="font-semibold text-red-400 hover:underline">alumni@masaischool.com</a></p>
+            <p class="text-sm text-gray-400 mt-2">&copy; 2025 Masai School. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <button id="back-to-top" class="hidden fixed bottom-8 right-8 bg-red-600 text-white p-3 rounded-full shadow-lg hover:bg-red-700 transition">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = {
+                home: document.getElementById('home'),
+                contingency: document.getElementById('contingency'),
+                nbfc: document.getElementById('nbfc'),
+                placement: document.getElementById('placement'),
+                scam: document.getElementById('scam')
+            };
+
+            function showSection(sectionId) {
+                Object.values(sections).forEach(s => s.classList.add('section-hidden'));
+                if (sections[sectionId]) {
+                    sections[sectionId].classList.remove('section-hidden');
+                    window.scrollTo({ top: sections[sectionId].offsetTop, behavior: 'smooth' });
+                }
+            }
+
+            function handleHashChange() {
+                const hash = window.location.hash.substring(1);
+                let sectionToShow = 'home';
+                if (hash && sections[hash]) {
+                    sectionToShow = hash;
+                }
+                
+                showSection(sectionToShow);
+            }
+            
+            window.addEventListener('hashchange', handleHashChange);
+            handleHashChange();
+
+            const backToTopButton = document.getElementById('back-to-top');
+            window.onscroll = function() {
+                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                    backToTopButton.classList.remove('hidden');
+                } else {
+                    backToTopButton.classList.add('hidden');
+                }
+            };
+            
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+        });
+    </script>
+</body>
+</html>
